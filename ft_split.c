@@ -12,6 +12,13 @@
 
 #include "libft.h"
 
+static int	is_charset(char c, char charset)
+{
+	if (c == charset || c == '\0')
+		return (1);
+	return (0);
+}
+
 static int	words_count(char const *str, char c)
 {
 	int	i;
@@ -21,8 +28,8 @@ static int	words_count(char const *str, char c)
 	count = 0;
 	while (str[i])
 	{
-		if ((str[i] != c || str[i] != '\0')
-			&& (str[i] == c || str[i] == '\0'))
+		if ((is_charset(str[i], c) == 0)
+			&& (is_charset(str[i + 1], c) == 1))
 			count++;
 		i++;
 	}
@@ -36,7 +43,7 @@ static char	*put_word(char const *str, char c, int pos)
 	char	*tab;
 
 	i = pos - 1;
-	while (i > 0 && str[i - 1] != c)
+	while (i > 0 && is_charset(str[i - 1], c) == 0)
 		i--;
 	tab = (char *)malloc(sizeof(char) * (pos - i) + 1);
 	if (!tab)
@@ -66,18 +73,18 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (is_charset(s[i], c) == 1)
 			i++;
 		else
 		{
 			j = 0;
-			while (s[i + j] != c && s[i + j] != '\0')
+			while (is_charset(s[i + j], c) == 0)
 				j++;
-			tab[k] = put_word(s, c, i + j);
+			tab[k++] = put_word(s, c, i + j);
 			i += j;
-			k++;
 		}
 	}
+	tab[k] = NULL;
 	return (tab);
 }
 
@@ -86,16 +93,18 @@ char	**ft_split(char const *s, char c)
 // {
 // 	int		i;
 // 	char	**tab;
-//
-// 	if (ac == 2)
+
+// 	if (ac == 3)
 // 	{
-// 		tab = ft_split(av[1], ' ');
+// 		tab = ft_split(av[1], av[2][0]);
 // 		i = 0;
 // 		while (tab[i])
 // 		{
 // 			printf("%s\n", tab[i]);
+// 			free(tab[i]);
 // 			i++;
 // 		}
+// 		free(tab);
 // 	}
 // 	else
 // 		printf("Not enough or too many arguments.\n");

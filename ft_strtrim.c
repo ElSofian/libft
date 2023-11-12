@@ -12,50 +12,52 @@
 
 #include "libft.h"
 
-static int	ft_strlen_without_set(char const *s, char const *set)
+static int	search(const char *set, char const c)
 {
 	int	i;
-	int	len;
 
 	i = 0;
-	len = 0;
-	while (s[i])
+	while (set[i])
 	{
-		if (ft_strchr(set, s[i]) == 0)
-			len++;
+		if (set[i] == c)
+			return (1);
 		i++;
 	}
-	return (len);
+	return (0);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		i;
-	int		j;
+	int		start;
+	int		end;
 	char	*str;
 
-	str = malloc(sizeof(char) * (ft_strlen_without_set(s1, set) + 1));
+	if (!s1)
+		return (NULL);
+	start = 0;
+	while (s1[start] && search(set, s1[start]) == 1)
+		start++;
+	end = ft_strlen(s1) - 1;
+	while (s1[end] && search(set, s1[end]) == 1)
+		end--;
+	if (start > end)
+		return (ft_strdup(""));
+	str = (char *)malloc(sizeof(char) * (end - start + 2));
 	if (!str)
 		return (NULL);
 	i = 0;
-	j = 0;
-	while (s1[i])
-	{
-		if (ft_strchr(set, s1[i]) == 0)
-		{
-			str[j] = s1[i];
-			j++;
-		}
-		i++;
-	}
+	while (start <= end)
+		str[i++] = s1[start++];
+	str[i] = '\0';
 	return (str);
 }
 
-// Compilation : gcc -Wall -Wextra -Werror ft_strtrim.c ft_strchr.c
+// Compilation : gcc -Wall -Wextra -Werror ft_strtrim.c
 // int	main(int ac, char **av)
 // {
-// 	if (ac == 3)
-// 		printf("%s\n", ft_strtrim(av[1], av[2]));
+// 	if (ac == 2)
+// 		printf("%s\n", ft_strtrim(av[1], " \n\t"));
 // 	else
 // 		printf("Not enough or too many arguments.\n");
 // 	return (0);

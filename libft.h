@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soelalou <soelalou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: soelalou <soelalou@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/15 20:11:21 by sofian            #+#    #+#             */
-/*   Updated: 2023/11/09 18:33:24 by soelalou         ###   ########.fr       */
+/*   Created: 2023/11/12 11:41:35 by soelalou          #+#    #+#             */
+/*   Updated: 2023/11/12 11:41:35 by soelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 // A enlever hors correction
-# include <stdio.h>
-# include <string.h>
-# include <bsd/string.h>
+// # include <stdio.h>
+// # include <string.h>
+// # include <bsd/string.h>
 // -------------------------
 
 typedef struct s_list
@@ -28,7 +28,7 @@ typedef struct s_list
 	struct s_list	*next;
 }			t_list;
 
-int		ft_atoi(char *str);
+int		ft_atoi(const char *str);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
@@ -70,5 +70,6 @@ t_list	*ft_lstlast(t_list *list);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
+size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 
 #endif

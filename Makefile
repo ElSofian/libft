@@ -64,10 +64,6 @@ $(BONUS_OBJ): $(BONUS)
 	@echo "$(BLUE)[Compiling]$(END_COLOR) $^"
 	@$(CC) $(CFLAGS) -c $^
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC) $(BONUS)
-	gcc -nostartfiles -shared -o libft.so $(OBJ) $(BONUS_OBJ)
-
 clean:
 	@$(RM) $(OBJ) $(BONUS_OBJ)
 	@echo "$(GREY)[Clean]$(END_COLOR) Objects have been deleted !"

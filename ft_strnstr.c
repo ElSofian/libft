@@ -20,7 +20,7 @@ char	*ft_strnstr(const char *str, const char *tf, size_t n)
 	i = 0;
 	if (!str || ft_strlen(str) == 0)
 		return (NULL);
-	if (n == 0 || ft_strlen(tf) == 0)
+	if (n == 0 || !tf || ft_strlen(tf) == 0)
 		return ((char *)str);
 	while (str[i] && i < n)
 	{
