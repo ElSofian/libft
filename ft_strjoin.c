@@ -20,7 +20,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!s1 || !s2)
 		return (NULL);
 	i = 0;
-	str = (char *)malloc(sizeof(char) + ft_strlen(s1) + ft_strlen(s2) + 1);
+	str = (char *)malloc(sizeof(char) + (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!str)
 		return (NULL);
 	while (*s1)
@@ -43,7 +43,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 // int	main(int ac, char **av)
 // {
 // 	char	*str;
-//
+
 // 	if (ac == 3)
 // 	{
 // 		str = ft_strjoin(av[1], av[2]);

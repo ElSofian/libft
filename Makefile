@@ -52,7 +52,7 @@ $(NAME): $(OBJ)
 	@echo "$(GREEN)[Success]$(END_COLOR) Libft is ready !"
 
 $(OBJ): $(SRC)
-	@echo "$(BLUE)[Compiling]$(END_COLOR) $^"
+	@echo "$(BLUE)[Compiling]$(END_COLOR) Mandatory files"
 	@$(CC) $(CFLAGS) -c $^
 
 bonus: $(BONUS_OBJ)
@@ -61,7 +61,7 @@ bonus: $(BONUS_OBJ)
 	@echo "$(GREEN)[Success]$(END_COLOR) Libft with bonus is ready !"
 
 $(BONUS_OBJ): $(BONUS)
-	@echo "$(BLUE)[Compiling]$(END_COLOR) $^"
+	@echo "$(BLUE)[Compiling]$(END_COLOR) Files with bonus"
 	@$(CC) $(CFLAGS) -c $^
 
 clean:

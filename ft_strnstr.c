@@ -18,7 +18,7 @@ char	*ft_strnstr(const char *str, const char *tf, size_t n)
 	size_t	j;
 
 	i = 0;
-	if (!str || ft_strlen(str) == 0)
+	if (!str || (n == 0 && (!tf || *tf)))
 		return (NULL);
 	if (n == 0 || !tf || ft_strlen(tf) == 0)
 		return ((char *)str);
@@ -33,6 +33,8 @@ char	*ft_strnstr(const char *str, const char *tf, size_t n)
 		}
 		i++;
 	}
+	if (ft_strlen(tf) > (n - i))
+		return (NULL);
 	return (NULL);
 }
 
