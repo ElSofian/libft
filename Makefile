@@ -69,7 +69,7 @@ clean:
 	@echo "$(GREY)[Clean]$(END_COLOR) Objects have been deleted !"
 
 fclean:	clean
-	@$(RM) $(NAME) a.out
+	@$(RM) $(NAME) a.out libft.so
 	@echo "$(GREY)[Clean]$(END_COLOR) $(NAME) and executable has been deleted !"
 
 re: fclean all
