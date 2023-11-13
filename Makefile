@@ -61,7 +61,7 @@ bonus: $(BONUS_OBJ)
 	@echo "$(GREEN)[Success]$(END_COLOR) Libft with bonus is ready !"
 
 $(BONUS_OBJ): $(BONUS)
-	@echo "$(BLUE)[Compiling]$(END_COLOR) Files with bonus"
+	@echo "$(BLUE)[Compiling]$(END_COLOR) Bonus files"
 	@$(CC) $(CFLAGS) -c $^
 
 clean:
@@ -70,7 +70,7 @@ clean:
 
 fclean:	clean
 	@$(RM) $(NAME) a.out
-	@echo "$(GREY)[Clean]$(END_COLOR) $(NAME) has been deleted !"
+	@echo "$(GREY)[Clean]$(END_COLOR) $(NAME) and executable has been deleted !"
 
 re: fclean all
 

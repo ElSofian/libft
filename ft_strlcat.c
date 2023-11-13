@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: soelalou <soelalou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/15 22:09:08 by soelalou          #+#    #+#             */
-/*   Updated: 2023/11/09 16:46:56 by soelalou         ###   ########.fr       */
+/*   Created: 2023/11/13 09:16:22 by soelalou          #+#    #+#             */
+/*   Updated: 2023/11/13 09:16:22 by soelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	src_len;
 	size_t	dst_len;
 
-	i = 0;
-	j = 0;
 	src_len = ft_strlen(src);
-	dst_len = ft_strlen(dst);
 	if (!dst || !src)
 		return (0);
 	if (size == 0)
 		return (src_len);
+	i = 0;
+	j = 0;
+	dst_len = ft_strlen(dst);
 	j = dst_len;
 	while (src[i] && j + 1 < size)
 		dst[j++] = src[i++];

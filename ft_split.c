@@ -26,6 +26,8 @@ static int	words_count(char const *str, char c)
 
 	i = 0;
 	count = 0;
+	if (!str)
+		return (0);
 	while (str[i])
 	{
 		if ((is_charset(str[i], c) == 0)

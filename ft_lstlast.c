@@ -14,12 +14,12 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*current;
+	t_list	*tmp;
 
-	current = lst;
-	while (current && current->next)
-		current = current->next;
-	return (current);
+	tmp = lst;
+	while (tmp && tmp->next)
+		tmp = tmp->next;
+	return (tmp);
 }
 
 // Compilation : gcc -Wall -Wextra -Werror ft_lstlast.c ft_lstnew.c

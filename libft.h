@@ -17,9 +17,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 // A enlever hors correction
-# include <stdio.h>
-# include <string.h>
-# include <bsd/string.h>
+// # include <stdio.h>
+// # include <string.h>
+// # include <bsd/string.h>
 // -------------------------
 
 typedef struct s_list
