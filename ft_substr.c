@@ -15,32 +15,35 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
-	size_t	j;
+	size_t	s_len;
 	char	*str;
 
+	s_len = ft_strlen(s);
+	if (!s)
+		return (NULL);
+	if (start > s_len)
+		return (ft_strdup(""));
+	if (len > s_len - start)
+		len = s_len - start;
 	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!s || !str)
+	if (!str)
 		return (NULL);
 	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		if (i >= start && j < len)
-		{
-			str[j] = s[i];
-			j++;
-		}
-		i++;
-	}
-	str[j] = '\0';
+	while (s[start] && i < len)
+		str[i++] = s[start++];
+	str[i] = '\0';
 	return (str);
 }
 
 // Compilation : gcc -Wall -Wextra -Werror ft_substr.c
+// #include <stdio.h>
 // int	main(int ac, char **av)
 // {
 // 	if (ac == 4)
-// 		printf("%s\n", ft_substr(av[1], av[2], av[3]));
+// 	{
+// 		printf("%s\n", ft_substr(av[1],
+// 			(unsigned int)atoi(av[2]), (size_t)atoi(av[3])));
+// 	}
 // 	else
 // 		printf("Not enough or too many arguments.\n");
 // 	return (0);

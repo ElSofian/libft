@@ -14,7 +14,7 @@
 # VARIABLES
 
 NAME		=	libft.a
-CC		=	gcc
+CC		=	cc
 CFLAGS		=	-Wall -Wextra -Werror
 RM		=	rm -rf
 
@@ -63,6 +63,10 @@ bonus: $(BONUS_OBJ)
 $(BONUS_OBJ): $(BONUS)
 	@echo "$(BLUE)[Compiling]$(END_COLOR) Bonus files"
 	@$(CC) $(CFLAGS) -c $^
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC) $(BONUS)
+	gcc -nostartfiles -shared -o libft.so $(OBJ) $(BONUS_OBJ)
 
 clean:
 	@$(RM) $(OBJ) $(BONUS_OBJ)

@@ -12,6 +12,17 @@
 
 #include "libft.h"
 
+static int	free_tab(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+		free(tab[i++]);
+	free(tab);
+	return (0);
+}
+
 static int	is_charset(char c, char charset)
 {
 	if (c == charset || c == '\0')
@@ -38,33 +49,37 @@ static int	words_count(char const *str, char c)
 	return (count);
 }
 
-static char	*put_word(char const *str, char c, int pos)
+static char	*put_word(char const *str, char c, int *pos)
 {
 	int		i;
 	int		j;
-	char	*tab;
+	int		k;
+	char	*tmp;
 
-	i = pos - 1;
+	k = 0;
+	while (is_charset(str[*pos + k], c) == 0)
+		k++;
+	*pos += k;
+	i = *pos - 1;
 	while (i > 0 && is_charset(str[i - 1], c) == 0)
 		i--;
-	tab = (char *)malloc(sizeof(char) * (pos - i) + 1);
-	if (!tab)
+	tmp = (char *)malloc(sizeof(char) * (*pos - i) + 1);
+	if (!tmp)
 		return (NULL);
 	j = 0;
-	while (i < pos)
+	while (i < *pos)
 	{
-		tab[j] = str[i];
+		tmp[j] = str[i];
 		i++;
 		j++;
 	}
-	tab[j] = '\0';
-	return (tab);
+	tmp[j] = '\0';
+	return (tmp);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	int		i;
-	int		j;
 	int		k;
 	char	**tab;
 
@@ -79,11 +94,12 @@ char	**ft_split(char const *s, char c)
 			i++;
 		else
 		{
-			j = 0;
-			while (is_charset(s[i + j], c) == 0)
-				j++;
-			tab[k++] = put_word(s, c, i + j);
-			i += j;
+			tab[k++] = put_word(s, c, &i);
+			if (!tab)
+			{
+				free_tab(tab);
+				return (NULL);
+			}
 		}
 	}
 	tab[k] = NULL;
@@ -102,7 +118,7 @@ char	**ft_split(char const *s, char c)
 // 		i = 0;
 // 		while (tab[i])
 // 		{
-// 			printf("%s\n", tab[i]);
+// 			printf("[%s]\n", tab[i]);
 // 			free(tab[i]);
 // 			i++;
 // 		}
