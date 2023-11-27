@@ -18,18 +18,16 @@ CC		=	cc
 CFLAGS		=	-Wall -Wextra -Werror
 RM		=	rm -rf
 
-SRC		=	ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
-			ft_isdigit.c ft_isprint.c ft_itoa.c ft_memcmp.c ft_memcpy.c ft_memchr.c \
-			ft_memmove.c ft_memset.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-			ft_putstr_fd.c ft_split.c ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c \
-			ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c \
-			ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c \
+SRC		=	char/ft_isalnum.c char/ft_isalpha.c char/ft_isascii.c char/ft_isdigit.c char/ft_isprint.c \
+			char/ft_putchar_fd.c char/ft_putendl_fd.c char/ft_putstr_fd.c char/ft_tolower.c char/ft_toupper.c \
+			int/ft_atoi.c int/ft_itoa.c int/ft_nbrlength.c int/ft_putnbr_fd.c int/ft_putunbr.c \
+			lst/ft_lstadd_back.c lst/ft_lstadd_front.c lst/ft_lstclear.c lst/ft_lstdelone.c lst/ft_lstiter.c \
+			lst/ft_lstlast.c lst/ft_lstmap.c lst/ft_lstnew.c lst/ft_lstsize.c \
+			mem/ft_bzero.c mem/ft_memchr.c mem/ft_memcmp.c mem/ft_memcpy.c mem/ft_memmove.c mem/ft_memset.c \
+			others/ft_calloc.c others/ft_printf.c others/ft_putaddr_fd.c
 
-BONUS		=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
-			ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c \
-
-OBJ		=	$(SRC:.c=.o)
-BONUS_OBJ	=	$(BONUS:.c=.o)
+OBJ_DIR		=	bin
+OBJ		=	$(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
 # **************************************************************************** #
 # COLORS
@@ -51,29 +49,17 @@ $(NAME): $(OBJ)
 	@ar rcs $(NAME) $(OBJ)
 	@echo "$(GREEN)[Success]$(END_COLOR) Libft is ready !"
 
-$(OBJ): $(SRC)
-	@echo "$(BLUE)[Compiling]$(END_COLOR) Mandatory files"
-	@$(CC) $(CFLAGS) -c $^
-
-bonus: $(BONUS_OBJ)
-	@echo "$(CYAN)[Library]$(END_COLOR) Creating libft.a"
-	@ar rcs $(NAME) $(BONUS_OBJ)
-	@echo "$(GREEN)[Success]$(END_COLOR) Libft with bonus is ready !"
-
-$(BONUS_OBJ): $(BONUS)
-	@echo "$(BLUE)[Compiling]$(END_COLOR) Bonus files"
-	@$(CC) $(CFLAGS) -c $^
-
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC) $(BONUS)
-	gcc -nostartfiles -shared -o libft.so $(OBJ) $(BONUS_OBJ)
+$(OBJ): $(OBJ_DIR)/%.o: %.c
+	@echo "$(BLUE)[Compiling]$(END_COLOR) $<"
+	@mkdir -p $(@D)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@$(RM) $(OBJ) $(BONUS_OBJ)
+	@$(RM) $(OBJ_DIR) $(BONUS_OBJ)
 	@echo "$(GREY)[Clean]$(END_COLOR) Objects have been deleted !"
 
 fclean:	clean
-	@$(RM) $(NAME) a.out libft.so
+	@$(RM) $(NAME) a.out bin
 	@echo "$(GREY)[Clean]$(END_COLOR) $(NAME) and executable has been deleted !"
 
 re: fclean all

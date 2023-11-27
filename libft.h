@@ -16,11 +16,10 @@
 # include <strings.h>
 # include <stdlib.h>
 # include <unistd.h>
-// A enlever hors correction
-// # include <stdio.h>
-// # include <string.h>
-// # include <bsd/string.h>
-// -------------------------
+# include <stdarg.h>
+# include <stdio.h>
+# include <string.h>
+# include <bsd/string.h>
 
 typedef struct s_list
 {
@@ -36,6 +35,15 @@ int		ft_isdigit(int c);
 int		ft_isprint(int c);
 int		ft_lstsize(t_list *lst);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
+int		ft_nbrlength(long nbr);
+int		ft_printf(const char *format, ...);
+int		ft_putaddr_fd(void *adress, int fd);
+int		ft_putchar_fd(char c, int fd);
+int		ft_putendl_fd(char *str, int fd);
+int		ft_puthex_fd(unsigned int nb, char *base, int fd);
+int		ft_putnbr_fd(int n, int fd);
+int		ft_putstr_fd(char *s, int fd);
+int		ft_putunbr_fd(unsigned int nb, int fd);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
@@ -50,10 +58,6 @@ char	*ft_strtrim(char const *s, char const *set);
 char	*ft_itoa(int n);
 char	**ft_split(char const *s, char c);
 void	ft_bzero(void *s, size_t n);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putendl_fd(char *str, int fd);
-void	ft_putnbr_fd(int nb, int fd);
-void	ft_putstr_fd(char *s, int fd);
 void	ft_striteri(char*s, void (*f)(unsigned int, char *));
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
