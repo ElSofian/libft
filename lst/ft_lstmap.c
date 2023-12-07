@@ -20,9 +20,9 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	if (!lst || !f || !del)
 	{
 		if (!lst)
-			ft_printf("Argument lst is NULL in ft_lstmap() function.\n");
+			ft_printf("Argument lst is NULL in ft_lstmap().\n");
 		if (!f || !del)
-			ft_printf("Argument function f or del is NULL in ft_lstmap() function.\n");
+			ft_printf("Argument function f or del is NULL in ft_lstmap().\n");
 		return (NULL);
 	}
 	new_lst = NULL;

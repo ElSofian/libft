@@ -15,7 +15,7 @@
 static void	*return_error(int err)
 {
 	if (err == 1)
-		ft_printf("Argument str is NULL or n == 0 and argument to_find is NULL in ft_strnstr() function.\n");
+		ft_printf("First verification failed in ft_strnstr().\n");
 	else if (err == 2)
 		ft_printf("The length of to_find is bigger than n - length of str.\n");
 	return (NULL);

@@ -27,16 +27,3 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	dest[i] = '\0';
 	return (ft_strlen(src));
 }
-
-// Compilation : gcc -Wall -Wextra -Werror ft_strlcpy.c ft_strlen.c
-// int	main(void)
-// {
-// 	char *c1 = "source";
-// 	char c2[] = "destination";
-// 	char c3[] = "destination";
-// 	printf("Excpected :   6, sour\nResult :   
-//	%lu, %s\n", ft_strlcpy(c2, c1, 5), c2);
-// 	printf("---\nExcpected :   6, source\nResult :   
-//	%lu, %s\n", ft_strlcpy(c3, c1, 8), c3);
-// 	return (0);
-// }

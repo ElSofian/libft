@@ -21,7 +21,7 @@ char	*ft_strdup(const char *s)
 	cpy = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
 	if (!cpy)
 	{
-		ft_printf("An error has occurred while allocate memory in ft_strdup() function.\n");
+		ft_printf("An error occurred while allocate memory in ft_strdup().\n");
 		return (NULL);
 	}
 	while (s[i])

@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunbr.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soelalou <soelalou@42.student.fr>          +#+  +:+       +#+        */
+/*   By: soelalou <soelalou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 23:02:21 by soelalou          #+#    #+#             */
-/*   Updated: 2023/12/02 14:18:50 by soelalou         ###   ########.fr       */
+/*   Created: 2023/12/04 10:52:47 by soelalou          #+#    #+#             */
+/*   Updated: 2023/12/06 11:09:28 by soelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_putunbr_fd(unsigned int nb, int fd)
+int	ft_strcmp(char *s1, char *s2)
 {
-	static int		i;
-	unsigned long	nbr;
+	int	i;
 
 	i = 0;
-	nbr = nb;
-	if (nbr > 9)
-	{
-		ft_putunbr_fd(nbr / 10, fd);
-		ft_putchar_fd(nbr % 10 + '0', fd);
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
 		i++;
-	}
-	else
-	{
-		ft_putchar_fd(nbr + '0', fd);
-		i++;
-	}
-	return (i);
+	return (s1[i] - s2[i]);
 }

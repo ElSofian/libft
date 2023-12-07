@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putaddr.c                                       :+:      :+:    :+:   */
+/*   ft_putaddr_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soelalou <soelalou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: soelalou <soelalou@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 23:03:26 by soelalou          #+#    #+#             */
-/*   Updated: 2023/11/27 23:08:58 by soelalou         ###   ########.fr       */
+/*   Updated: 2023/12/02 14:22:17 by soelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_putaddr_fd(void *adress, int fd)
 	if (!adress)
 		return (ft_putstr_fd("(nil)", fd));
 	if (fd < 0)
-		return (ft_putstr_fd("Argument fd is NULL in ft_putaddr_fd() function.\n", fd));
+		return (ft_putstr_fd("Argument fd is NULL in ft_putaddr_fd().\n", fd));
 	ft_putstr_fd("0x", fd);
 	return (2 + printadress((unsigned long)adress, fd));
 }

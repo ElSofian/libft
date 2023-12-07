@@ -15,20 +15,17 @@
 static void	*return_error(int err)
 {
 	if (err == 1)
-		ft_printf("An error has occured while initialize tab with allocating memory in ft_split() function.\n");
+		ft_printf("An error occured while with allocating memory, ft_split.\n");
 	else if (err == 2)
-		ft_printf("An error has occured while allocate a tab in put_word() function (ft_split()).\n");
+		ft_printf("An error has occured while allocate a tab in put_word().\n");
 	return (NULL);
 }
 
-static void	free_tab(char **tab)
+static int	is_charset(char c, char charset)
 {
-	int	i;
-
-	i = 0;
-	while (tab[i])
-		free(tab[i++]);
-	free(tab);
+	if (c == charset || c == '\0')
+		return (1);
+	return (0);
 }
 
 static int	words_count(char const *str, char c)
@@ -42,8 +39,8 @@ static int	words_count(char const *str, char c)
 		return (0);
 	while (str[i])
 	{
-		if ((str[i] != c || str[i] != '\0')
-			&& (str[i + 1] == c || str[i + 1] == '\0'))
+		if ((is_charset(str[i], c) == 0)
+			&& (is_charset(str[i + 1], c) == 1))
 			count++;
 		i++;
 	}
@@ -58,11 +55,11 @@ static char	*put_word(char const *str, char c, int *pos)
 	char	*tmp;
 
 	k = 0;
-	while (str[*pos + k] != c || str[*pos + k] != '\0')
+	while (is_charset(str[*pos + k], c) == 0)
 		k++;
 	*pos += k;
 	i = *pos - 1;
-	while (i > 0 && (str[i - 1] != c || str[i - 1] != '\0'))
+	while (i > 0 && is_charset(str[i - 1], c) == 0)
 		i--;
 	tmp = (char *)malloc(sizeof(char) * (*pos - i) + 1);
 	if (!tmp)
@@ -91,14 +88,14 @@ char	**ft_split(char const *s, char c)
 		return (return_error(1));
 	while (s[i])
 	{
-		if (s[i] == c || s[i] == '\0')
+		if (is_charset(s[i], c) == 1)
 			i++;
 		else
 		{
 			tab[k++] = put_word(s, c, &i);
 			if (!tab)
 			{
-				free_tab(tab);
+				ft_freetab(tab);
 				return (NULL);
 			}
 		}

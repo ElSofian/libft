@@ -17,7 +17,7 @@ static void	*return_error(int err)
 	if (err == 1)
 		ft_printf("Argument s1 is NULL in ft_strtrim() function.\n");
 	else if (err == 2)
-		ft_printf("An error has occured while allocate memory in ft_strtrim() function.\n");
+		ft_printf("An error occured while allocate memory in ft_strtrim().\n");
 	return (NULL);
 }
 

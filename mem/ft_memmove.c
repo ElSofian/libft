@@ -12,8 +12,9 @@
 
 #include "../libft.h"
 
-static void	*return_error()
+static void	*return_error(int nb)
 {
+	(void)nb;
 	ft_printf("Arguments dest and src are NULL in ft_memmove() function.\n");
 	return (NULL);
 }
@@ -25,7 +26,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	size_t	i;
 
 	if (!dest && !src)
-		return (return_error());
+		return (return_error(1));
 	new_src = (char *)src;
 	new_dest = (char *)dest;
 	i = 0;

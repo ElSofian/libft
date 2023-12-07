@@ -15,9 +15,9 @@
 static void	*return_error(int err)
 {
 	if (err == 1)
-		ft_printf("Argument variable s or argument function f is NULL in ft_strmapi() function.\n");
+		ft_printf("Argument s or f is NULL in ft_strmapi() function.\n");
 	else if (err == 2)
-		ft_printf("An error has occured while allocate memory in ft_strmapi() function.\n");
+		ft_printf("An error occured while allocate memory in ft_strmapi().\n");
 	return (NULL);
 }
 

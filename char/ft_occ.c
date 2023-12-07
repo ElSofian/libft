@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunbr.c                                       :+:      :+:    :+:   */
+/*   ft_occ.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soelalou <soelalou@42.student.fr>          +#+  +:+       +#+        */
+/*   By: soelalou <soelalou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 23:02:21 by soelalou          #+#    #+#             */
-/*   Updated: 2023/12/02 14:18:50 by soelalou         ###   ########.fr       */
+/*   Created: 2023/12/06 17:47:22 by soelalou          #+#    #+#             */
+/*   Updated: 2023/12/07 09:45:05 by soelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_putunbr_fd(unsigned int nb, int fd)
+int	ft_occ(char *str, char c)
 {
-	static int		i;
-	unsigned long	nbr;
+	int	i;
+	int	count;
 
 	i = 0;
-	nbr = nb;
-	if (nbr > 9)
+	count = 0;
+	while (str[i])
 	{
-		ft_putunbr_fd(nbr / 10, fd);
-		ft_putchar_fd(nbr % 10 + '0', fd);
+		if (str[i] == c)
+			count++;
 		i++;
 	}
-	else
-	{
-		ft_putchar_fd(nbr + '0', fd);
-		i++;
-	}
-	return (i);
+	return (count);
 }

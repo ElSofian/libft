@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunbr.c                                       :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soelalou <soelalou@42.student.fr>          +#+  +:+       +#+        */
+/*   By: soelalou <soelalou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 23:02:21 by soelalou          #+#    #+#             */
-/*   Updated: 2023/12/02 14:18:50 by soelalou         ###   ########.fr       */
+/*   Created: 2023/12/06 17:53:37 by soelalou          #+#    #+#             */
+/*   Updated: 2023/12/07 09:13:33 by soelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_putunbr_fd(unsigned int nb, int fd)
+char	*ft_strcat(char *s1, const char *s2)
 {
-	static int		i;
-	unsigned long	nbr;
+	int	i;
+	int	j;
 
 	i = 0;
-	nbr = nb;
-	if (nbr > 9)
-	{
-		ft_putunbr_fd(nbr / 10, fd);
-		ft_putchar_fd(nbr % 10 + '0', fd);
+	while (s1[i] != '\0')
 		i++;
-	}
-	else
+	j = 0;
+	while (s2[j] != '\0')
 	{
-		ft_putchar_fd(nbr + '0', fd);
+		s1[i] = s2[j];
 		i++;
+		j++;
 	}
-	return (i);
+	s1[i] = '\0';
+	return (s1);
 }

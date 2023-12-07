@@ -21,7 +21,7 @@ int	ft_putstr_fd(char *s, int fd)
 		if (!s)
 			ft_printf("Argument s is NULL in ft_putstr_fd() function.\n");
 		if (fd < 0)
-			ft_printf("Argument fd is less than 0 in ft_putstr_fd() function.\n");
+			ft_printf("Argument fd is less than 0 in ft_putstr_fd().\n");
 		return (-1);
 	}
 	len = ft_strlen(s);

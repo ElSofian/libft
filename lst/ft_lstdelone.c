@@ -19,7 +19,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 		if (!lst)
 			ft_printf("Argument lst is NULL in ft_lstdelone() function.\n");
 		if (!del)
-			ft_printf("Argument function del is NULL in ft_lstdelone() function.\n");
+			ft_printf("Argument function del is NULL in ft_lstdelone().\n");
 		return ;
 	}
 	del(lst->content);

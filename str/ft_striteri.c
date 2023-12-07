@@ -20,9 +20,9 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	if (!s || !f)
 	{
 		if (!s)
-			ft_printf("The argument s is NULL in ft_striteri() function.\n");
+			ft_printf("The argument s is NULL in ft_striteri().\n");
 		if (!f)
-			ft_printf("The function argument f is NULL in ft_striteri() function.\n");
+			ft_printf("The function argument f is NULL in ft_striteri().\n");
 		return ;
 	}
 	while (s[i])

@@ -15,9 +15,9 @@
 static void	*return_error(int err)
 {
 	if (err == 1)
-		ft_printf("Argument s1 or s2 is NULL in ft_strjoin() function.\n");
+		ft_printf("Argument s1 or s2 is NULL in ft_strjoin().\n");
 	else if (err == 2)
-		ft_printf("An error has occured while allocate memory in ft_strjoin() function.\n");
+		ft_printf("An error occured while allocate memory in ft_strjoin().\n");
 	return (NULL);
 }
 

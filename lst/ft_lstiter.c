@@ -19,7 +19,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 		if (!lst)
 			ft_printf("Argument lst is NULL in ft_lstiter() function.\n");
 		if (!f)
-			ft_printf("Argument function f is NULL in ft_lstiter() function.\n");
+			ft_printf("Argument function f is NULL in ft_lstiter().\n");
 		return ;
 	}
 	while (lst != NULL)

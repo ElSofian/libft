@@ -15,9 +15,9 @@
 static void	*return_error(int err)
 {
 	if (err == 1)
-		ft_printf("(Size * nmemb) are over INT_MAX (overflowing) in ft_calloc() function.\n");
+		ft_printf("(Size * nmemb) are over INT_MAX in ft_calloc().\n");
 	else if (err == 2)
-		ft_printf("An error has occured while allocate memory in ft_calloc() function.\n");
+		ft_printf("An error has occured while allocate memory, ft_calloc().\n");
 	return (NULL);
 }
 

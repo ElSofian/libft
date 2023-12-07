@@ -31,7 +31,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 	{
-		ft_printf("An error has occured while allocate memory in ft_substr() function.\n");
+		ft_printf("An error occured while allocate memory in ft_substr().\n");
 		return (NULL);
 	}
 	i = 0;

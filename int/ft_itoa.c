@@ -12,9 +12,10 @@
 
 #include "../libft.h"
 
-static void	*return_error()
+static void	*return_error(int nb)
 {
-	ft_printf("An error has occured while allocate memory in ft_itoa() function.\n");
+	(void)nb;
+	ft_printf("An error has occured while allocate memory in ft_itoa().\n");
 	return (NULL);
 }
 
@@ -35,7 +36,7 @@ char	*ft_itoa(int n)
 	i = ft_nbrlength(nbr);
 	str = (char *)malloc(sizeof(char) * ft_nbrlength(nbr) + 1);
 	if (!str)
-		return (return_error());
+		return (return_error(1));
 	str[i--] = '\0';
 	if (nbr == 0)
 		return (print_zero(str));
