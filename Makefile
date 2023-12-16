@@ -15,7 +15,7 @@
 
 NAME		=	libft.a
 CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror -fPIC
 RM			=	rm -rf
 
 SRC			=	char/ft_isalnum.c char/ft_isalpha.c char/ft_isascii.c char/ft_isdigit.c char/ft_isprint.c \
@@ -24,7 +24,7 @@ SRC			=	char/ft_isalnum.c char/ft_isalpha.c char/ft_isascii.c char/ft_isdigit.c 
 				lst/ft_lstadd_back.c lst/ft_lstadd_front.c lst/ft_lstclear.c lst/ft_lstdelone.c lst/ft_lstiter.c \
 				lst/ft_lstlast.c lst/ft_lstmap.c lst/ft_lstnew.c lst/ft_lstsize.c \
 				mem/ft_bzero.c mem/ft_memchr.c mem/ft_memcmp.c mem/ft_memcpy.c mem/ft_memmove.c mem/ft_memset.c \
-				others/ft_calloc.c others/ft_freetab.c others/ft_printf.c others/ft_putaddr_fd.c \
+				others/ft_calloc.c others/ft_freetab.c others/ft_printf.c others/ft_putaddr_fd.c others/get_next_line.c \
 				str/ft_split.c str/ft_strcat.c str/ft_strchr.c str/ft_strcmp.c str/ft_strcpy.c str/ft_strdup.c str/ft_striteri.c \
 				str/ft_strjoin.c str/ft_strlcat.c str/ft_strlcpy.c str/ft_strlen.c str/ft_strmapi.c str/ft_strncmp.c str/ft_strnstr.c \
 				str/ft_strrchr.c str/ft_strtrim.c str/ft_substr.c

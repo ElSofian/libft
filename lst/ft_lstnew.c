@@ -19,7 +19,7 @@ t_list	*ft_lstnew(void *content)
 	list = (t_list *)malloc(sizeof(t_list));
 	if (!list)
 	{
-		ft_printf("Argument lst is NULL in ft_lstadd_back() function.\n");
+		ft_printf("Argument lst is NULL in ft_lstnew() function.\n");
 		return (NULL);
 	}
 	list->content = (char *)content;
